@@ -1,49 +1,89 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
+	<view class="content"
+		@click="playBgm">
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+		<div class="bokeh"></div>
+
+		<div class="center-box">
+			<p class="title-1">世界上最可爱的小徐生日快乐！</p>
+			<p class="title-2">超级超级爱你</p>
+			<!-- <span>🎉</span> -->
+			<div class="candle">
+				<div id="flame" class="lit"></div>
+			</div>
+
+			<div class="cake"></div>
+			<div class="plate"></div>
+		</div>
 	</view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
+import bokeh from '@/components/bokeh'
+export default {
+	components: {
+		bokeh,
+	},
+	data() {
+		return {
+			innerAudioContext: '',
+		}
+	},
+	onLoad() {
+		this.innerAudioContext = uni.createInnerAudioContext()
+		this.innerAudioContext.autoplay = true
+		this.innerAudioContext.src = 'https://win-web-nf01-sycdn.kuwo.cn/92d26fd9fb306790293fbc27c397185b/63eb54d1/resource/n2/96/49/2798292777.mp3'
+	},
+	methods: {
+		playBgm () {
+			this.innerAudioContext.play()
 		}
 	}
+}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style src="./index.css" scoped>
 </style>
